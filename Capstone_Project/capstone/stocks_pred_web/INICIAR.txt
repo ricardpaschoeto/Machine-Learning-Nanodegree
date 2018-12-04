@@ -1,0 +1,7 @@
+== ATIVAR VIRTUAL ENV
+
+	C:\Users\paschoeto\Envs\stocks_pred_web\Scripts\activate.bat
+
+== INICIAR SERVIDOR
+
+	python manage.py runserver

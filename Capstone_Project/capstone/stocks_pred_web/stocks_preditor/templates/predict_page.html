@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Predicted Prices</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:lightyellow;
+}
+
+/* Style the header */
+header {
+    background-color: #666;
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+    width: 100%;
+}
+
+/* Clear floats after the columns */
+section:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*Division*/
+div{
+    padding: 15px;
+    border: double;
+    text-align:center;
+}
+
+</style>
+</head>
+<body>
+
+<h1 align="center">Predict Results</h1>
+<header>
+    <form action="/predict_date/" method="post">{% csrf_token %} 
+        Models:<select name="models">
+            <option value="linear">Linear Regression (Benchmarch)</option>
+            <option value="tree">Tree Model</option>
+            <option value="treeAdaBoost">Tree Model Adaboost</option>
+            <option value="sgd">SGD</option>
+            <option value="sgdAdaBoost">SGD Adaboost</option>
+        </select>
+
+        Test Size:<select name="test">
+                <option value="5">5</option>
+                <option value="7">7</option>
+                <option value="14">14</option>
+                <option value="28">28</option>
+                <option value="30">30</option>
+                <option value="60">60</option>
+                <option value="90">90</option>
+            </select>
+        Predict Date:<input type="date" name="pdate">
+        <input type="submit" value="run analisys">
+    </form>
+</header>
+
+<h2 align="center"></h2>
+<div style="background-color:lightgray" align="justify">
+    <img src="data:image/png;base64,{{graphic|safe}}" width=100% height=600 align="middle">
+</div>
+ 
+</body>
+</html>

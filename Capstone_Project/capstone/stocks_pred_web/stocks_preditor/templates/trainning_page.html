@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Model Selection</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:lightyellow;
+}
+
+/* Style the header */
+header {
+    background-color: #666;
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+    width: 100%;
+}
+
+/* Clear floats after the columns */
+section:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*Division*/
+div{
+    padding: 15px;
+    border: double;
+    text-align:center;
+}
+
+/*Division*/
+table {
+    table-layout: auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td{
+    border: 2px solid black;
+}
+
+</style>
+</head>
+<body>
+
+<h1 align="center">Stocks and Period</h1>
+
+<header>
+    <form action="/search/" method="post">{% csrf_token %}
+        Stocks: <input type="text" name="stocks">
+        Start Date:  <input type="date" name="sdate">
+        End Date:    <input type="date" name="edate">
+        <input type="submit" value="searching">
+    </form>
+    <br>
+    <form action="/read_database/" method="post">{% csrf_token %}
+        <input type="submit" value="Read from Directory">
+    </form>
+</header>
+
+<h2 align="center">Table with last price of the Stocks:</h2>
+<div style="background-color:lightgray" align="justify">
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Stock</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Open</th>
+            <th>Close</th>
+            <th>Volume</th>
+            <th>Adj Close</th>
+            <th>Iron Ore</th>
+            <th>Oil Barrel</th>
+            <th>Currency Exchange</th>
+            <th>Historical Volatility</th>
+        </tr>
+        {%for index, d in data %}
+        <tr>
+            <td>{{index}}</td>
+            <td>{{d.Stock}}</td>
+            <td>{{d.High}}</td>
+            <td>{{d.Low}}</td>
+            <td>{{d.Open}}</td>
+            <td>{{d.Close}}</td>
+            <td>{{d.Volume}}</td>
+            <td>{{d.AdjClose}}</td>
+            <td>{{d.FOE}}</td>
+            <td>{{d.WTI}}</td>
+            <td>{{d.DEXBZUS}}</td>
+            <td>{{d.GarchAnnualized}}</td>
+        </tr>
+        {% endfor%}
+    </table>
+</div>
+
+<h2 align="center"></h2>
+<div style="background-color:lightgray" align="justify">
+    <img src="data:image/png;base64,{{graphic|safe}}" width=100% height=600 align="middle">
+</div>
+
+<h2 align="center">Model Parameters Selection:</h2>
+<header>
+    <form action="/models_analisys/" method="post">{% csrf_token %}
+        Test Size:<select name="test">
+                <option value="5">5</option>
+                <option value="7">7</option>
+                <option value="14">14</option>
+                <option value="28">28</option>
+                <option value="30">30</option>
+                <option value="60">60</option>
+                <option value="90">90</option>
+            </select>
+        <input type="submit" value="run analisys">
+    </form>
+</header>
+
+<h2 align="center">Model Analysis:</h2>
+<div style="background-color:lightgray">
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Stocks</th>
+                <th colspan="2">Benchmarch</th>
+                <th colspan="2">tree</th>
+                <th colspan="2">tree Adaboost</th>
+                <th colspan="2">SGD</th>
+                <th colspan="2">SGD Adaboost</th>
+             </tr>
+            <tr>
+                <th>RMSE</th>
+                <th>R2 score</th>
+                <th>RMSE</th>
+                <th>R2 score</th>
+                <th>RMSE</th>
+                <th>R2 score</th>
+                <th>RMSE</th>
+                <th>R2 score</th>
+                <th>RMSE</th>
+                <th>R2 score</th>
+            </tr>
+        </thead>
+        <tbody>
+        {%for index, d in results %}
+        <tr>
+            <td>{{index}}</td>
+            <td>{{d.Benchmarch.RMSE}}</td>
+            <td>{{d.Benchmarch.R2_score}}</td>
+            <td>{{d.Tree.RMSE}}</td>
+            <td>{{d.Tree.R2_score}}</td>
+            <td>{{d.TreeAdaboost.RMSE}}</td>
+            <td>{{d.TreeAdaboost.R2_score}}</td>
+            <td>{{d.SGD.RMSE}}</td>
+            <td>{{d.SGD.R2_score}}</td>
+            <td>{{d.SGDAdaboost.RMSE}}</td>
+            <td>{{d.SGDAdaboost.R2_score}}</td>
+        </tr>
+        {% endfor%}
+        </tbody>
+    </table>
+</div>
+
+<br><br>
+
+<div style="background-color:lightgray">
+    <form action="/predict/" method="post">{% csrf_token %}
+        <input type="submit" value="go to Predict">
+    </form>
+</div>
+</body>
+</html>
