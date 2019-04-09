@@ -21,3 +21,21 @@ In this project we will analyze a dataset containing data on various customers' 
 
 This project came from my interest in the financial market and the technical characteristics linked to the movements of assets (stocks). I have developed an application that will predict stock prices in a range of dates or on a specific date chosen for Brazilian stock market shares. The data used for analysis comes from historical data obtained by the system from specific providers for the collection of information via Phyton (eg yahoo, Google finance, and others) for each share. The user interacts with the system through a web application.
 
+* System to predict stock prices
+
+Include the '.SA' prefix before start the seaching:
+
+p. ex.: PETR4.SA, ABEV3.SA
+
+* Server Initialize:
+
+Navigate until 'manage.py'
+
+Shell: python manage.py runserver, para ativar o servidor interno
+
+Access:
+
+http://127.0.0.1:8000/index/
+
+To navigate until trainning page.
+
