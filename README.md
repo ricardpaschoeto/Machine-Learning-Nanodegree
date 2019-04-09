@@ -4,6 +4,7 @@ Folder to resources from Machine Leraning Nanodegree
 * numpy
 * sklearn
 * pandas
+* matplotlib
 
 # Project 01 - Pricing Boston Real Estate Prices
 
@@ -18,6 +19,9 @@ The goal of this project is to identify students who may need early intervention
 In this project we will analyze a dataset containing data on various customers' annual spending amounts (reported in monetary units) of diverse product categories for internal structure. One goal of this project is to best describe the variation in the different types of customers that a wholesale distributor interacts with. Doing so would equip the distributor with insight into how to best structure their delivery service to meet the needs of each customer.
 
 # Capstone - System to predict stock prices
+
+* pandas_datareader
+* arch_model
 
 This project came from my interest in the financial market and the technical characteristics linked to the movements of assets (stocks). I have developed an application that will predict stock prices in a range of dates or on a specific date chosen for Brazilian stock market shares. The data used for analysis comes from historical data obtained by the system from specific providers for the collection of information via Phyton (eg yahoo, Google finance, and others) for each share. The user interacts with the system through a web application.
 
