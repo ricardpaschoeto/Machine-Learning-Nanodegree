@@ -10,7 +10,7 @@ Exploring core machine learning concepts, before moving on to supervised and uns
 
 # Project 01 - Pricing Boston Real Estate Prices
 
-In this project, you will evaluate the performance and estimation power of a model that has been trained and tested on data collected from real estate in the suburbs of Boston, Massachusetts. A model prepared for such data and seen as well adjusted may then be used for certain estimates about a property - in particular, its monetary value. This model would be of great value to someone as a furniture agent, who could make use of this information daily.
+In this project your task is to build an optimal machine learning model to estimate the best selling price for your client’s home in the Boston metropolitan area based on a statistical analysis of the historical data that is available to you.
 
 # Project 02 - Building a Student Intervention System
 
@@ -18,7 +18,7 @@ The goal of this project is to identify students who may need early intervention
 
 # Project 03 - Creating Customer Segments
 
-In this project we will analyze a dataset containing data on various customers' annual spending amounts (reported in monetary units) of diverse product categories for internal structure. One goal of this project is to best describe the variation in the different types of customers that a wholesale distributor interacts with. Doing so would equip the distributor with insight into how to best structure their delivery service to meet the needs of each customer.
+The task in this project is to use unsupervised learning techniques to see if any similarities exist between customers of a fictitious wholesale retailer, and how to best segment customers into distinct categories using various clustering techniques in order to help the retailer make more informed business decisions.
 
 # Capstone - System to predict stock prices
 
