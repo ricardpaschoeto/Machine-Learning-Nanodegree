@@ -1,6 +1,8 @@
 # MLND
 Folder to resources from Machine Leraning Nanodegree
 
+Exploring core machine learning concepts, before moving on to supervised and unsupervised learning.
+
 * numpy
 * sklearn
 * pandas
